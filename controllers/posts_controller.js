@@ -1,3 +1,5 @@
 module.exports.newpost = function(req,res){
-    return res.end('<h1>Write New Post</h1>');
+    return res.render('newpost.ejs',{
+        title:'New Post'
+    });
 }
