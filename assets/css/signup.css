@@ -1,0 +1,40 @@
+#body{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffff;
+    width: 25%;
+    height: 100%;
+}
+form input{
+    height: 30px;
+    margin: 5px;
+    background-color: #f5f6f7;
+    border: 1px solid #ccd0d5;
+    border-radius: 5px;
+}
+form input:focus{
+    outline: none;
+}
+form p{
+    margin: 5px;
+    font-size: 10px;
+    text-align: left;
+}
+form button{
+    color: #fff;
+    background-color: #157b00;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 0px 16px;
+    font-size: 17px;
+    width: 150px;
+    height: 50px;
+    margin: auto;
+}

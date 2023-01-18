@@ -1,5 +1,22 @@
 body{
-    background-color: red;
-    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0px;
+    background-color: #efefef;
+    color: black;
     text-align: center;
+}
+header{
+    background-color: grey;
+}
+header h1{
+    margin: 0px;
+}
+footer{
+    width: 100vw;
+    position: absolute;
+    background-color: grey;
+    top:93.75%;
+}
+footer h1{
+    margin: 0px;
 }
