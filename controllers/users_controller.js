@@ -1,17 +1,24 @@
-const mongoose = require('mongoose');
 const User = require('../models/user');
 
 module.exports.profile = function(req,res){
-    return res.end('<h1>Users Profile Page</h1>')
+    return res.render('profile.ejs',{
+        title:`Profile`
+    })
 };
 // render singup page
 module.exports.signup = function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     return res.render('signup.ejs',{
         title:'Codeial-Sign Up'
     });
 }
 // render login page
 module.exports.login = function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     return res.render('login.ejs',{
         title:'Codeial-Log In'
     });
@@ -35,5 +42,21 @@ module.exports.create= function(req,res){
 }
 // login and create session
 module.exports.create_session=function(req,res){
-    //todo later
+    return res.render('user_home.ejs',{
+        title:'Home'
+    });
+}
+
+// singout and destroy session
+module.exports.destroy_session = function(req,res,next){
+    req.logout(function(err){
+        if(err){
+            return next(err);
+        }
+    });
+    return res.redirect('/');
+}
+//new post
+module.exports.new_post=function(req,res){
+    res.send('<h1>posted</h1>')
 }

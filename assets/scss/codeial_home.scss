@@ -1,0 +1,15 @@
+body{
+    #home-page{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #codeial{
+        color: #1877f2;
+        font-size: 100px;
+        &:hover{
+            color: #42b72a;
+        }
+    }
+}

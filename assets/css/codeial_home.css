@@ -1,0 +1,11 @@
+body #home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+body #codeial {
+  color: #1877f2;
+  font-size: 100px; }
+  body #codeial:hover {
+    color: #42b72a; }

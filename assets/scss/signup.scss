@@ -1,0 +1,42 @@
+#body{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    form{
+        text-align: center;
+        border: 1px solid #31525b;
+        display: flex;
+        flex-direction: column;
+        background-color: #efefef;
+        width: 25%;
+        height: 100%;
+        input{
+            height: 30px;
+            margin: 5px;
+            background-color: #f5f6f7;
+            border: 1px solid #ccd0d5;
+            border-radius: 5px;
+            :focus{
+                outline: none;
+            }
+        }
+        p{
+            margin: 5px;
+            font-size: 10px;
+            text-align: left;
+        }
+        button{
+            color: #fff;
+            background-color: #157b00;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            padding: 0px 16px;
+            font-size: 17px;
+            width: 150px;
+            height: 50px;
+            margin: auto;
+        }
+    }
+}
