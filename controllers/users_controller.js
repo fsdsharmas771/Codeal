@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Post = require('../models/post');
 
 module.exports.profile = function(req,res){
     return res.render('profile.ejs',{
@@ -40,11 +41,27 @@ module.exports.create= function(req,res){
         }
     })
 }
+// module.exports.users_home = function(req,res){
+//     Post.find({},function(err,posts){
+//         if(err){ console.log('Error in fetching posts from DB',err); return}
+//         return res.render('user_home.ejs',{
+//             title:'Home',
+//             post_list:posts
+//         })
+//     });
+// }
+module.exports.users_home = function(req,res){
+    Post.find({}).populate('user').exec(function(err,posts){
+        if(err){ console.log('Error in fetching posts from DB',err); return}
+        return res.render('user_home.ejs',{
+            title:'Home',
+            post_list:posts
+    });
+})
+}
 // login and create session
 module.exports.create_session=function(req,res){
-    return res.render('user_home.ejs',{
-        title:'Home'
-    });
+    return res.redirect('/users/home');
 }
 
 // singout and destroy session
@@ -55,8 +72,4 @@ module.exports.destroy_session = function(req,res,next){
         }
     });
     return res.redirect('/');
-}
-//new post
-module.exports.new_post=function(req,res){
-    res.send('<h1>posted</h1>')
 }
