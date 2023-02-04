@@ -3,6 +3,7 @@ body{
         display: flex;
         width: 100%;
         height: auto;
+        min-height: 87.5vh;
         background-color: #efefef;
         #left{
             height: 100%;
@@ -49,6 +50,12 @@ body{
                     background-color: #ffff;
                     width: 78%;
                     border-radius: 25px;
+                    .delete-post{
+                        margin-left: 94%;
+                        a{
+                            color: red;
+                        }
+                    }
                     .like-share-comment{
                         i{
                             margin-right: 5px;

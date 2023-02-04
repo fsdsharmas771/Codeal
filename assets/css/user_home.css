@@ -2,6 +2,7 @@ body #main {
   display: flex;
   width: 100%;
   height: auto;
+  min-height: 87.5vh;
   background-color: #efefef; }
   body #main #left {
     height: 100%;
@@ -43,6 +44,10 @@ body #main {
         background-color: #ffff;
         width: 78%;
         border-radius: 25px; }
+        body #main #middle #posts .post .delete-post {
+          margin-left: 94%; }
+          body #main #middle #posts .post .delete-post a {
+            color: red; }
         body #main #middle #posts .post .like-share-comment i {
           margin-right: 5px; }
         body #main #middle #posts .post .bookmark {

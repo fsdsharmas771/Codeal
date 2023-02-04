@@ -13,6 +13,9 @@
                 <% for(let post of post_list){%>
                     <li class="post">
                         <span>
+                            <%if(locals.user && locals.user.id==post.user.id){%>
+                                <small class="delete-post"><a href="/posts/destroy/<%=post.id%>"><i class="fa-solid fa-trash"></i></a></small>
+                            <%}%>
                             <p><%=post.user.name %></p>
                             <p><%=post.content %></p>
                         </span>
