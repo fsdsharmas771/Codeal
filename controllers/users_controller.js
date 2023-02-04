@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Post = require('../models/post');
+const { populate } = require('../models/comment');
 
 module.exports.profile = function(req,res){
     return res.render('profile.ejs',{
@@ -51,7 +52,15 @@ module.exports.create= function(req,res){
 //     });
 // }
 module.exports.users_home = function(req,res){
-    Post.find({}).populate('user').exec(function(err,posts){
+    Post.find({})
+    .populate('user')
+    .populate({
+        path:'comments',
+        populate:{
+            path:'user'
+        }
+    })
+    .exec(function(err,posts){
         if(err){ console.log('Error in fetching posts from DB',err); return}
         return res.render('user_home.ejs',{
             title:'Home',
