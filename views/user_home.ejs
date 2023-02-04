@@ -10,18 +10,27 @@
             </form>
             <%}%>
             <div id="posts">
-                <% for(let i of post_list){%>
+                <% for(let post of post_list){%>
                     <li class="post">
                         <span>
-                            <p><%=i.user.name %></p>
-                            <p><%=i.content %></p>
+                            <p><%=post.user.name %></p>
+                            <p><%=post.content %></p>
                         </span>
                         <span class="like-share-comment">
-                            <i class="fa-solid fa-heart"></i>
-                            <i class="fa-solid fa-comment"></i>
+                            <i class="fa-regular fa-heart"></i>
+                            <i class="fa-regular fa-comment"></i>
                             <i class="fa-solid fa-share"></i>
                         </span>
                         <span class="bookmark"><i class="fa-regular fa-bookmark"></i></span>
+                        <span class="comment">
+                            <% if(locals.user){%>
+                            <form action="/comments/create" method="post" id="comment-form">
+                                <textarea name="content" placeholder="Write a comment" cols="30" rows="1"></textarea>
+                                <input type="hidden" name="post" value="<%= post._id%>">
+                                <button type="submit">Comment</button>
+                            </form>
+                            <%}%>
+                        </span>
                     </li>
                 <%}%>
             </div>

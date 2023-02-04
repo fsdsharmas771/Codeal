@@ -2,7 +2,8 @@ body #home-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  height: 87.5vh; }
 
 body #codeial {
   color: #1877f2;

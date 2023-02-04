@@ -29,10 +29,8 @@ body {
     height: 36px;
     display: flex;
     align-items: center;
-    position: absolute;
     color: white;
     background-color: #1877f2;
-    top: 93.75%;
     font-size: 10px; }
     body footer h1 {
       margin: 0px; }
