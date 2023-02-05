@@ -69,6 +69,31 @@ body #main {
             border: none;
             border-radius: 25px;
             cursor: pointer; }
-  body #main #right {
-    height: 100%;
-    width: 22%; }
+        body #main #middle #posts .post .comment .post-comment-list ul {
+          padding-top: 5px;
+          padding-bottom: 5px; }
+          body #main #middle #posts .post .comment .post-comment-list ul .single-comment {
+            display: flex;
+            margin: 5px;
+            margin-left: -40px; }
+            body #main #middle #posts .post .comment .post-comment-list ul .single-comment .comment-content {
+              background-color: #cccccc;
+              border-radius: 25px;
+              padding-left: 10px;
+              display: flex;
+              flex-direction: column;
+              width: 20%; }
+              body #main #middle #posts .post .comment .post-comment-list ul .single-comment .comment-content p {
+                margin: 0px;
+                display: inline; }
+              body #main #middle #posts .post .comment .post-comment-list ul .single-comment .comment-content small {
+                margin: 0px; }
+            body #main #middle #posts .post .comment .post-comment-list ul .single-comment .delete-comment {
+              display: flex;
+              align-items: center; }
+              body #main #middle #posts .post .comment .post-comment-list ul .single-comment .delete-comment a {
+                color: red; }
+
+body #right {
+  height: 100%;
+  width: 22%; }

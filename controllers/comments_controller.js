@@ -20,3 +20,20 @@ module.exports.create = (req,res)=>{
         }
     });
 }
+
+module.exports.destroy = (req,res)=>{
+    Comment.findById(req.params.id,(err,comment)=>{
+        if(err){ console.log('Error in finding comment during deleting comment',err); return }
+        if(comment.user == req.user.id){
+            let postId = comment.post;// taking post id in variable to delete that comment from comments array of that post
+            comment.remove();// remove the comment 
+            // find the post to which deleted comment is related and pull/remove that comment id from comments array of that post
+            Post.findByIdAndUpdate(postId,{$pull:{comments:req.params.id}},(err,post)=>{
+                return res.redirect('back');
+            })
+        }else{
+            // if login user did not match comment user
+            return res.redirect('back');
+        }
+    })
+}

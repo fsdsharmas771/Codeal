@@ -85,6 +85,41 @@ body{
                                 border: none;
                                 border-radius: 25px;
                                 cursor: pointer;
+                                }
+                            }
+                            .post-comment-list{
+                                ul{
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+                                    .single-comment{
+                                        display: flex;
+                                        margin: 5px;
+                                        margin-left: -40px;
+                                        .comment-content{
+                                            background-color: #cccccc;
+                                            border-radius: 25px;
+                                            padding-left: 10px;
+                                            display: flex;
+                                            flex-direction: column;
+                                            width: 20%;
+                                            p{
+                                                margin: 0px;
+                                                display: inline;
+                                            }
+                                            small{
+                                                margin: 0px;
+                                            }
+                                        }
+                                        .delete-comment{
+                                            display: flex;
+                                            align-items: center;
+                                            a{
+                                                color: red;
+                                            }
+                                        }
+                                    }
+                                }
+
                             }
                         }
                     }
@@ -96,4 +131,3 @@ body{
             width: 22%;
         }
     }
-}

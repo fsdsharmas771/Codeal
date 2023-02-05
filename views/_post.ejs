@@ -1,0 +1,31 @@
+<li class="post">
+    <span>
+        <%if(locals.user && locals.user.id==post.user.id){%>
+            <small class="delete-post"><a href="/posts/destroy/<%=post.id%>"><i class="fa-solid fa-trash"></i></a></small>
+        <%}%>
+        <p><%=post.user.name %></p>
+        <p><%=post.content %></p>
+    </span>
+    <span class="like-share-comment">
+        <i class="fa-regular fa-heart"></i>
+        <i class="fa-regular fa-comment"></i>
+        <i class="fa-solid fa-share"></i>
+    </span>
+    <span class="bookmark"><i class="fa-regular fa-bookmark"></i></span>
+    <span class="comment">
+        <% if(locals.user){%>
+        <form action="/comments/create" method="post" id="comment-form">
+            <textarea name="content" placeholder="Write a comment" cols="30" rows="1"></textarea>
+            <input type="hidden" name="post" value="<%= post._id%>">
+            <button type="submit">Comment</button>
+        </form>
+        <%}%>
+        <span class="post-comment-list">
+            <ul class="post-comments-<%=post._id%>">
+                <% for (let comment of post.comments){%>
+                    <%-include('_comments.ejs',{comment});%>
+                <%}%>
+            </ul>
+        </span>
+    </span>
+</li>

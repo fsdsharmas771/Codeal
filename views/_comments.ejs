@@ -1,0 +1,11 @@
+<span class="single-comment">
+    <span class="comment-content">
+        <p><%= comment.content %></p>
+        <small><%=comment.user.name%></small>
+    </span>
+    <span class="delete-comment">
+        <%if(locals.user && locals.user.id==comment.user.id){%>
+            <small><a href="/comments/destroy/<%=comment.id%>"><i class="fa-solid fa-trash"></i></a></small>
+        <%}%>
+    </span>
+</span>

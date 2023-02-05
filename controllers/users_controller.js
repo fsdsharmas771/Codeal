@@ -19,7 +19,7 @@ module.exports.signup = function(req,res){
 // render login page
 module.exports.login = function(req,res){
     if(req.isAuthenticated()){
-        return res.redirect('/users/profile');
+        return res.redirect('/users/home');
     }
     return res.render('login.ejs',{
         title:'Codeial-Log In'
