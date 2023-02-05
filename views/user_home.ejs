@@ -15,6 +15,13 @@
                 <%}%>
             </div>
         </div>
-        <div id="right">right</div>
+        <div id="right">
+            <h4>Friends</h4>
+            <%for(let u of all_users){%>
+                <p>
+                    <a href="/users/profile/<%=u.id%>"><%=u.name%></a>
+                </p>
+            <%}%>
+        </div>
     </div>
 </body>

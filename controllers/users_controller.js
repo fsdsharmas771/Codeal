@@ -3,8 +3,11 @@ const Post = require('../models/post');
 const { populate } = require('../models/comment');
 
 module.exports.profile = function(req,res){
-    return res.render('profile.ejs',{
-        title:`Profile`
+    User.findById(req.params.id,(err,user)=>{
+        return res.render('profile.ejs',{
+            title:'Profile',
+            profile_user:user
+        })
     })
 };
 // render singup page
@@ -62,9 +65,13 @@ module.exports.users_home = function(req,res){
     })
     .exec(function(err,posts){
         if(err){ console.log('Error in fetching posts from DB',err); return}
-        return res.render('user_home.ejs',{
-            title:'Home',
-            post_list:posts
+        User.find({},(err,users)=>{
+            return res.render('user_home.ejs',{
+                title:'Home',
+                post_list:posts,
+                all_users:users
+        })
+        
     });
 })
 }
