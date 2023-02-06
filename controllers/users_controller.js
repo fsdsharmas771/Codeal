@@ -54,8 +54,9 @@ module.exports.create= function(req,res){
 //         })
 //     });
 // }
-module.exports.users_home = function(req,res){
-    Post.find({})
+module.exports.users_home = async function(req,res){
+    try{
+        let posts = await Post.find({})
     .populate('user')
     .populate({
         path:'comments',
@@ -63,25 +64,25 @@ module.exports.users_home = function(req,res){
             path:'user'
         }
     })
-    .exec(function(err,posts){
-        if(err){ console.log('Error in fetching posts from DB',err); return}
-        User.find({},(err,users)=>{
-            return res.render('user_home.ejs',{
-                title:'Home',
-                post_list:posts,
-                all_users:users
-        })
-        
-    });
-})
+    let users = await User.find({})
+    return res.render('user_home.ejs',{
+        title:'Home',
+        post_list:posts,
+        all_users:users});
+    }catch(err){
+        console.log('Error',err);
+        return;
+    }
 }
 // login and create session
 module.exports.create_session=function(req,res){
+    req.flash('success','Logged in Successfully!!');
     return res.redirect('/users/home');
 }
 
 // singout and destroy session
 module.exports.destroy_session = function(req,res,next){
+    req.flash('success','Logged in Successfully!!')
     req.logout(function(err){
         if(err){
             return next(err);
