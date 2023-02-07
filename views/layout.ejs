@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <!-- jquery cdn is added just below the noty because noty not required or use jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/layout.css">
     <script src="https://kit.fontawesome.com/5bd46391e5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://kit.fontawesome.com/5bd46391e5.css" crossorigin="anonymous">
@@ -12,8 +16,29 @@
 </head>
 <body>
     <%- include('_header.ejs'); %>
+    
     <%- body %>
     <%- include('_footer.ejs'); %>
     <%- script %>
+    <script type="text/javascript">
+        <% if(flash.success && flash.success.length>0){%>
+            new Noty({
+            theme:'relax',
+            text:<%= flash.success %>,
+            type:'success', // type of notification acc to which colour is shown
+            layout:'topRight',//position of notification
+            timeout:1500//in miliseconds
+            }).show();
+        <%}%>
+        <% if(flash.error && flash.error.length>0){%>
+            new Noty({
+            theme:'relax',
+            text:<%= flash.error %>,
+            type:'error', // type of notification acc to which colour is shown
+            layout:'topRight',//position of notification
+            timeout:1500//in miliseconds
+            }).show();
+        <%}%>
+    </script>
 </body>
 </html>

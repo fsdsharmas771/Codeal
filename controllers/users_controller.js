@@ -82,11 +82,12 @@ module.exports.create_session=function(req,res){
 
 // singout and destroy session
 module.exports.destroy_session = function(req,res,next){
-    req.flash('success','Logged in Successfully!!')
+    // req.flash('success','Logged out Successfully!!');
     req.logout(function(err){
         if(err){
             return next(err);
         }
     });
+    req.flash('success','Logged out Successfully!!');
     return res.redirect('/');
 }
