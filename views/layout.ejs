@@ -16,15 +16,14 @@
 </head>
 <body>
     <%- include('_header.ejs'); %>
-    
     <%- body %>
     <%- include('_footer.ejs'); %>
     <%- script %>
     <script type="text/javascript">
         <% if(flash.success && flash.success.length>0){%>
             new Noty({
-            theme:'relax',
-            text:<%= flash.success %>,
+            theme:'metroui',
+            text:'<%= flash.success %>',
             type:'success', // type of notification acc to which colour is shown
             layout:'topRight',//position of notification
             timeout:1500//in miliseconds
@@ -33,7 +32,7 @@
         <% if(flash.error && flash.error.length>0){%>
             new Noty({
             theme:'relax',
-            text:<%= flash.error %>,
+            text:'<%= flash.error %>',
             type:'error', // type of notification acc to which colour is shown
             layout:'topRight',//position of notification
             timeout:1500//in miliseconds
