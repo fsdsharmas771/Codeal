@@ -1,4 +1,14 @@
 body{
     color: black;
     height: auto;
+    .main{
+        min-height: 83vh;
+        .profile_picture{
+            margin:5px;
+            width:150px;
+            height: 150px;
+            border:3px solid black;
+            border-radius: 50%;
+        }
+    }
 }

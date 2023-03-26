@@ -9,6 +9,7 @@ router.get('/signup',usersController.signup);
 router.get('/login',usersController.login);
 router.post('/create',usersController.create);
 router.get('/home',usersController.users_home);
+router.post('/update/:id',usersController.update);
 
 router.post('/create-session',passport.authenticate(
     'local',

@@ -1,6 +1,19 @@
 <link rel="stylesheet" href="/css/profile.css">
-<h1>
-    This Is Profile Page
-</h1>
-<p><%= profile_user.name %></p>
-<p><%= profile_user.email %></p>
+<body>
+    <div class="main">
+        <img  class="profile_picture" src="<%=user.avatar%>" alt="<%=user.name%>">
+        <% if(user.id==profile_user.id){%>
+            <p><%= profile_user.name %></p>
+            <p><%= profile_user.email %></p>
+            <form action="/users/update/<%=profile_user.id%>" enctype="multipart/form-data" method="post">
+                <input type="text" placeholder="New Name" name="name" required>
+                <input type="email" placeholder="New Email" name="email" required>
+                <input type="file" name="avatar" placeholder="Updtae Profile Picture">
+                <button type="submit">Update</button>
+            </form>
+        <%}else{%>
+            <p><%= profile_user.name %></p>
+            <p><%= profile_user.email %></p>
+        <%}%>
+    </div>
+</body>

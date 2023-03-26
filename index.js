@@ -26,6 +26,9 @@ app.use(express.urlencoded());
 app.use(cookieParser());
 
 app.use(express.static('./assets'));
+// give access path to uploads folder
+app.use('/uploads',express.static(__dirname+'/uploads'))
+
 // use express-ejs-layout
 app.use(expressLayouts);
 //extract styles and scripts from sub pages into layout
